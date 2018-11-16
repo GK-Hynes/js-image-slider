@@ -52,4 +52,18 @@ arrowRight.addEventListener("click", function() {
   slideRight();
 });
 
+// Change images
+function changeImages() {
+  if (current < sliderImages.length) {
+    sliderImages[current].style.display = "block";
+    current++;
+  } else {
+    current = 0;
+  }
+  setTimeout(() => {
+    changeImages();
+  }, 3000);
+}
+
 startSlide();
+changeImages();
