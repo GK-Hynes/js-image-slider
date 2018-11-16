@@ -4,10 +4,16 @@ let arrowRight = document.querySelector("#arrow-right");
 let current = 0;
 
 // Clear all images
+// function reset() {
+//   for (let i = 0; i < sliderImages.length; i++) {
+//     sliderImages[i].style.display = "none";
+//   }
+// }
+
 function reset() {
-  for (let i = 0; i < sliderImages.length; i++) {
-    sliderImages[i].style.display = "none";
-  }
+  sliderImages.forEach(image => {
+    image.style.display = "none";
+  });
 }
 
 // Initialize the slider
