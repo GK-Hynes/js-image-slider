@@ -20,6 +20,7 @@ function reset() {
 function startSlide() {
   reset();
   sliderImages[0].style.display = "block";
+  changeImages();
 }
 
 // Show previous
@@ -54,11 +55,19 @@ arrowRight.addEventListener("click", function() {
 
 // Change images
 function changeImages() {
-  if (current < sliderImages.length) {
+  if (current === 0) {
+    sliderImages[sliderImages.length - 1].style.display = "none";
+    sliderImages[current].style.display = "block";
+    current++;
+  } else if (current < sliderImages.length) {
+    sliderImages[current - 1].style.display = "none";
     sliderImages[current].style.display = "block";
     current++;
   } else {
     current = 0;
+    sliderImages[sliderImages.length - 1].style.display = "none";
+    sliderImages[current].style.display = "block";
+    current++;
   }
   setTimeout(() => {
     changeImages();
@@ -66,4 +75,3 @@ function changeImages() {
 }
 
 startSlide();
-changeImages();
